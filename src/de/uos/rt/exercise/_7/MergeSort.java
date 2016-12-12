@@ -103,13 +103,12 @@ public class MergeSort {
 	
 	public static void main(String[] args) {
 		int[] array; 
-    	do {
-    		array = IO.readInts("Geben Sie eine beliebige Anzahl von "
-    				+ "Zahlen ein : ");
-    	} while(array.length < 1);
-    	printArray(recSort(array));
-    	IO.print(steps);
-    	
+		do {
+			array = IO.readInts("Geben Sie eine beliebige Anzahl von "
+					+ "Zahlen ein : ");
+		} while(array.length < 1);
+		printArray(recSort(array));
+		IO.print(steps);
 	}
 	
 }
