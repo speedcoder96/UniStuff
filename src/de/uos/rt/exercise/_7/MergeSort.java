@@ -41,9 +41,11 @@ public class MergeSort {
 
 		while (i < a.length) {
 			c[k++] = a[i++];  
+			steps++;
 		}
 		while (j < b.length) {
-			c[k++] = b[j++];          
+			c[k++] = b[j++];     
+			steps++;
 		}
 		
 		return c;                                   
@@ -70,7 +72,7 @@ public class MergeSort {
 	public static int[] recSort(int[] array) {
 		//hat das Array nur ein Element,
 		//gebe das Array zurueck
-		if(array.length <= 1) {
+		if(array.length == 1) {
 			return array;
 		}
 		
@@ -82,8 +84,10 @@ public class MergeSort {
 		for(int i = 0; i < array.length; i++) {
 			if(i < leftArray.length) {
 				leftArray[i] = array[i];
+				steps++;
 			} else {
 				rightArray[i - leftArray.length] = array[i];
+				steps++;
 			}
 		}
 		
