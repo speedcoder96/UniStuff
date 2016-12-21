@@ -47,7 +47,6 @@ public class PancakeSort {
 
     /**
      * Sortiert das gegebene <tt>array</tt> mit dem PancakeSort Verfahren.
-     *
      * @param array zu sortierendes Array
      */
     public static void sort(int[] array) {
@@ -75,10 +74,8 @@ public class PancakeSort {
      */
     private static int findMaxValueIndex(int[] array, int n) {
     	int maxIndex = 0;
-    	int currentMax = array[0];
     	for(int i = 0; i < n; i++) {
-    		if(currentMax < array[i]) {
-    			currentMax = array[i];
+    		if(array[maxIndex] < array[i]) {
     			maxIndex = i;
     		}
     	}
