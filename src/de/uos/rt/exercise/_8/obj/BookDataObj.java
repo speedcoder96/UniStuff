@@ -1,4 +1,4 @@
-package de.uos.rt.exercise._8;
+package de.uos.rt.exercise._8.obj;
 
 import AlgoTools.IO;
 

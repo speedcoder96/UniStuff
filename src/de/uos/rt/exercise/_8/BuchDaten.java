@@ -29,7 +29,7 @@ public class BuchDaten {
 		  throw new RuntimeException("Erscheinungsjahr im falschen Bereich");
 	  }
 	  
-	  char[][][] newList = new char[liste.length + 1][3][];
+	  char[][][] newList = new char[liste.length + 1][3][0];
 	  copyData(newList, liste);
 	  newList[newList.length - 1][0] = titel;
 	  newList[newList.length - 1][1] = autor;
@@ -46,7 +46,8 @@ public class BuchDaten {
    */
   private static void copyData(char[][][] newList, char[][][] oldList) {
 	  for(int i = 0; i < oldList.length; i++) {
-		  for(int j = 0; j < oldList[i].length; i++) {
+		  for(int j = 0; j < oldList[i].length; j++) {
+			  newList[i][j] = new char[oldList[i][j].length];
 			  for(int k = 0; k < oldList[i][j].length; k++) {
 				  newList[i][j][k] = oldList[i][j][k];
 			  }
