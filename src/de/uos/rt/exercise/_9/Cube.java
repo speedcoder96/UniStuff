@@ -1,5 +1,16 @@
 package de.uos.rt.exercise._9;
 
+/**
+ * Diese Klasse beschreibt einen Wuerfel mit einer
+ * Kantenlaenge <tt>width</tt> und den Koordinaten
+ * der hinteren rechten Ecke <tt>x</tt>, <tt>y</tt>
+ * und <tt>z</tt> im dreidimensionalen Raum
+ * 
+ * 
+ * @author Rene Sommerfeld
+ * @author Tim Adam
+ *
+ */
 public class Cube extends Shape {
 	
 	/**
@@ -25,7 +36,7 @@ public class Cube extends Shape {
 	 * @param width die Kantenlaenge
 	 */
 	public void setWidth(double width) {
-		if(width <= 0) {
+		if(width <= 0.0) {
 			throw new RuntimeException("Kantenlaenge darf nicht null oder negativ sein");
 		}
 		this.width = width;
@@ -52,7 +63,7 @@ public class Cube extends Shape {
 	 * @return
 	 */
 	public double getArea() {
-		return width * width * 6;
+		return width * width * 6.0;
 	}
 	
 	/**
@@ -64,10 +75,14 @@ public class Cube extends Shape {
 	public double getDistanceTo(Shape other) {
 		if(other instanceof Cube) {
 			Cube cube = (Cube)other;
-			double diffX = (cube.x + cube.getWidth() / 2) - (x + width / 2);
-			double diffY = (cube.y + cube.getWidth() / 2) - (y + width / 2);
-			double diffZ = (cube.z + cube.getWidth() / 2) - (z + width / 2);
-			return Math.sqrt((diffX * diffX) + (diffY * diffY) + (diffZ * diffZ));
+			double diffX = (cube.x + cube.width / 2.0) - (x + width / 2.0);
+			double diffY = (cube.y + cube.width / 2.0) - (y + width / 2.0);
+			double diffZ = (cube.z + cube.width / 2.0) - (z + width / 2.0);
+			
+			double distance = Math.sqrt((diffX * diffX) + (diffY * diffY) + (diffZ * diffZ));
+			
+			return distance;
+			
 		}
 		return super.getDistanceTo(other);
 	}

@@ -1,5 +1,15 @@
 package de.uos.rt.exercise._9;
 
+/**
+ * Diese Klasse beschreibt einen allgemeinen
+ * Koerper mit den Koordinaten <tt>x</tt>, 
+ * <tt>y</tt> und <tt>z</tt> in einem 
+ * dreidimensionalen Raum
+ * 
+ * @author Rene Sommerfeld
+ * @author Tim Adam
+ *
+ */
 public class Shape {
 
 	/**
@@ -30,10 +40,7 @@ public class Shape {
 	 * Defaultkonstruktor
 	 */
 	public Shape() {
-		colour = "schwarz";
-		x = 0;
-		y = 0;
-		z = 0;
+		this("schwarz", 0, 0, 0);
 	}
 	
 	/**
@@ -75,9 +82,9 @@ public class Shape {
 	 */
 	public double getDistanceTo(Shape other) {
 		return Math.sqrt(
-				(((x - other.x) * (x - other.x)) + 
-				((y - other.y) * (y - other.y)) + 
-				((z - other.z) * (z - other.z)))
+				(((other.x - x) * (other.x - x)) + 
+				((other.y - y) * (other.y - y)) + 
+				((other.z - z) * (other.z - z)))
 				);
 	}
 	

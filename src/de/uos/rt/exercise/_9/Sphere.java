@@ -1,5 +1,15 @@
 package de.uos.rt.exercise._9;
 
+/**
+ * Diese Klasse beschreibt eine Kugel mit einem
+ * Radius <tt> radius </tt> und den Koordinaten
+ * <tt>x</tt>, <tt>y</tt> und z als den Mittelpunkt
+ * dieser im dreidimensionalen Raum
+ * 
+ * @author Tim Adam
+ * @author Rene Sommerfeld
+ *
+ */
 public class Sphere extends Shape {
 	
 	/**
@@ -44,7 +54,7 @@ public class Sphere extends Shape {
 	 * @return das Volumen der Kugel
 	 */
 	public double getVolume() {
-		return (4 / 3) * Math.PI * radius * radius * radius;
+		return ((4.0 / 3.0) * Math.PI * radius * radius * radius);
 	}
 
 	/**
@@ -52,12 +62,13 @@ public class Sphere extends Shape {
 	 * @return die Oberflaeche der Kugel
 	 */
 	public double getArea() {
-		return 4 * Math.PI * radius * radius;
+		return 4.0 * Math.PI * radius * radius;
 	}
 	
 	/**
 	 * Gibt den Abstand zwischen dieser Kugel Instanz
 	 * und einem anderen Koerper <tt>other</tt> zurueck
+	 * @param other der andere Koerper
 	 * @return der Abstand zwischen dieser Kugel und dem 
 	 * anderen Koeper <tt>other</tt>
 	 */
@@ -67,8 +78,11 @@ public class Sphere extends Shape {
 			double diffX = (sphere.x - x);
 			double diffY = (sphere.y - y);
 			double diffZ = (sphere.z - z);
-			return Math.sqrt(((diffX * diffX) + (diffY * diffY) + (diffZ * diffZ) - 
+			
+			double distance = Math.sqrt(((diffX * diffX) + (diffY * diffY) + (diffZ * diffZ) - 
 					radius - sphere.getRadius()));
+			
+			return distance;
 		}
 		return super.getDistanceTo(other);
 	}
