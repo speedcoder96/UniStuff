@@ -29,7 +29,6 @@ public class SuperListeTest {
 
     l.reset();
 
-    System.out.println("Ausgabe");
     while (!l.endpos()) {
       IO.println(l.elem());
       l.advance();
@@ -38,7 +37,6 @@ public class SuperListeTest {
     l.umdrehen();
     IO.println();
 
-    System.out.println("Umgedreht");
     while (!l.endpos()) {
       IO.println(l.elem());
       l.advance();
@@ -47,7 +45,6 @@ public class SuperListeTest {
     l.reset();
     IO.println();
     l.unique();
-    System.out.println("Unique");
     while (!l.endpos()) {
       IO.println(l.elem());
       l.advance();

@@ -1,4 +1,4 @@
- package de.uos.rt.exercise._10;
+ package de.uos.rt.exercise._12._4;
 /**************************  VerweisListe.java ********************************/
 
 /** Implementation des Interface Liste mithilfe von Verweisen

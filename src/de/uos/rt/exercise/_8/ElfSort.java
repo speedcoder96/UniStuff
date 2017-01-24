@@ -41,13 +41,13 @@ public class ElfSort {
 		//gleichen Verfahren und packt anschliessend die einzelnen
 		//Pakete von den Ablageflaechen beginnend bei 0 ended bei 9
 		//wieder zurueck in das Array
-		int iterator = 0;
+		int i = 0;
 		for(int j = 0; j < shelves.length; j++) {
 			if(shelves[j].length > 1) {
 				shelves[j] = sort(shelves[j], currentDigit + 1);
 			}
 			for(int k = 0; k < shelves[j].length; k++) {
-				presents[iterator++] = shelves[j][k];
+				presents[i++] = shelves[j][k];
 			}
 			
 		}

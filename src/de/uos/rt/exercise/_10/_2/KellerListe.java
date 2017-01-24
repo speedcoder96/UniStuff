@@ -5,15 +5,15 @@ import de.uos.rt.exercise._10.VerweisKeller;
 
 public class KellerListe implements Liste {
 
-	//Keller der die aktuellen Elemente beinhaltet
-	private VerweisKeller current;
-	//Keller der alle weiteren Elemente beinhaltet
-	private VerweisKeller others;
+	//Keller der die vordere Haelfte beinhaltet
+	private VerweisKeller front;
+	//Keller der die hintere Haelfte beinhaltet
+	private VerweisKeller back;
 	
 	
 	public KellerListe() {
-		current = new VerweisKeller();
-		others = new VerweisKeller();
+		front = new VerweisKeller();
+		back = new VerweisKeller();
 	}
 	
 	/**
@@ -22,7 +22,7 @@ public class KellerListe implements Liste {
 	 */
 	public boolean empty() {
 		//ist leer wenn beide Keller leer sind
-		return current.empty() && others.empty();
+		return front.empty() && back.empty();
 	}
 
 	/**
@@ -31,20 +31,16 @@ public class KellerListe implements Liste {
 	 * @return true wenn Liste an letzter Stelle, sonst false
 	 */
 	public boolean endpos() {
-		return others.empty();
+		return back.empty();
 	}
 
 	/**
 	 * Setzt die Liste auf die Anfangsposition zurueck
 	 */
 	public void reset() {
-		while(!current.empty()) {
-			others.push(current.top());
-			current.pop();
-		}
-		if(!empty()) {
-			current.push(others.top());
-			others.pop();
+		while(!front.empty()) {
+			back.push(front.top());
+			front.pop();
 		}
 	}
 
@@ -56,8 +52,8 @@ public class KellerListe implements Liste {
 		if(endpos()) {
 			throw new RuntimeException("Endposition erreicht");
 		}
-		current.push(others.top());
-		others.pop();
+		front.push(back.top());
+		back.pop();
 	}
 
 	/**
@@ -68,7 +64,7 @@ public class KellerListe implements Liste {
 		if(empty()) {
 			throw new RuntimeException("KellerListe ist leer");
 		}
-		return current.top();
+		return back.top();
 	}
 
 	/**
@@ -76,11 +72,10 @@ public class KellerListe implements Liste {
 	 * @param x das neue Element
 	 */
 	public void insert(Object x) {
-		if(!current.empty()) {
-			others.push(current.top());
-			current.pop();
+		if(x == null) {
+			throw new RuntimeException("Das uebergebene Objekt ist null");
 		}
-		current.push(x);
+		front.push(x);
 	}
 
 	/**
@@ -90,11 +85,7 @@ public class KellerListe implements Liste {
 		if(endpos()) {
 			throw new RuntimeException("Endposition erreicht");
 		}
-		if(!current.empty()) {
-			current.pop();
-		}
-		current.push(others.top());
-		others.pop();
+		back.pop();
 	}
 
 }
