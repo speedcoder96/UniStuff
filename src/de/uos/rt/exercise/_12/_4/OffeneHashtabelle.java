@@ -74,7 +74,7 @@ public class OffeneHashtabelle implements Menge {
 	public boolean delete(Comparable x) {
 		int hashCode = hashCode(x);	
 		if(lookup(x) != null) {
-			if(contains(x, lists[hashCode])) {
+			if(contains(x, lists[hashCode]) != null) {
 				lists[hashCode].delete();
 				return true;
 			}
@@ -91,10 +91,7 @@ public class OffeneHashtabelle implements Menge {
 	 */
 	public Comparable lookup(Comparable x) {
 		int hashCode = hashCode(x);
-		if(contains(x, lists[hashCode])) {
-			return (Comparable)lists[hashCode].elem();
-		}
-		return null;
+		return contains(x, lists[hashCode]);
 	}
 	
 	/**
@@ -103,20 +100,18 @@ public class OffeneHashtabelle implements Menge {
 	 * Position in der Liste an der das Element gefunden wurde.
 	 * @param x das zu ueberpruefende Element
 	 * @param list die zu ueberpruefende Liste
-	 * @return true wenn das Element <tt> x </tt> in 
-	 * der Liste <tt> list </tt> enthalten ist, andernfalls
-	 * false
+	 * @return das Element wenn es gefunden wurde, sonst null
 	 */
-	private boolean contains(Comparable x, Liste list) {
+	private Comparable contains(Comparable x, Liste list) {
 		list.reset();
 		while(!list.endpos()) {
 			Object current = list.elem();
 			if(current.equals(x)) {
-				return true;
+				return (Comparable)current;
 			}
 			list.advance();
 		}
-		return false;
+		return null;
 	}
 	
 	/**
